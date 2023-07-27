@@ -55,7 +55,7 @@ test_wrapper() {
 				if [[ $server == 'Server1' ]]; then
 					score_server1_ok=$((score_server1_ok+1))
 				fi
-				if [[$server == 'Server2' ]]; then
+				if [[ $server == 'Server2' ]]; then
 					score_server2_ok=$((score_server2_ok+1))
 				fi
 				if [[ $workstation == 'Workstation1' ]]; then
