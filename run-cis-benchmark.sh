@@ -87,7 +87,7 @@ test_wrapper() {
 					noscore_server2_ok=$((noscore_server2_ok+1))
 				fi
 				if [[ $workstation == 'Workstation1' || $workstation == 'Workstation2' ]]; then
-                    noscore_workstation_ok=$((score_workstation_ok+1))
+                    			noscore_workstation_ok=$((score_workstation_ok+1))
 				if [[ $workstation == 'Workstation1' ]]; then
 					noscore_workstation1_ok=$((noscore_workstation1_ok+1))
 				fi
