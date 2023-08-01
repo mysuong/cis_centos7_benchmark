@@ -18,6 +18,8 @@ test_wrapper() {
 
 	# -- count the totals for the baseline
 	if [[ $score == 'Yes' ]]; then
+		if [[ $server == 'Server1' || $server == 'Server2' ]]; then
+			score_automated_server_total=$((score_automated_server_total+1))
 		if [[ $server == 'Server1' ]]; then
 			score_server1_total=$((score_server1_total+1))
 		fi
@@ -27,16 +29,22 @@ test_wrapper() {
 		if [[ $workstation == 'Workstation1' ]]; then
 			score_workstation1_total=$((score_workstation1_total+1))
 		fi
+		if [[ $workstation == 'Workstation1' || $workstation == 'Workstation2' ]]; then
+			score_automated_workstation_total=$((score_automated_workstation_total+1))
 		if [[ $workstation == 'Workstation2' ]]; then
 			score_workstation2_total=$((score_workstation2_total+1))
 		fi
 	else
+		if [[ $server == 'Server1' || $server == 'Server2' ]]; then
+			noscore_manual_server_total=$((noscore_manual_server_total+1))
 		if [[ $server == 'Server1' ]]; then
 			noscore_server1_total=$((noscore_server1_total+1))
 		fi
 		if [[ $server == 'Server2' ]]; then
 			noscore_server2_total=$((noscore_server2_total+1))
 		fi
+		if [[ $workstation == 'Workstation1' || $workstation == 'Workstation2' ]]; then
+			noscore_manual_workstation_total=$((noscore_manual_worktation_total+1))
 		if [[ $workstation == 'Workstation1' ]]; then
 			noscore_workstation1_total=$((noscore_workstation1_total+1))
 		fi
@@ -52,12 +60,17 @@ test_wrapper() {
 			
 			# -- count the success for the baseline
 			if [[ $score == 'Yes' ]]; then
+				if [[ $server == 'Server1' || $server == 'Server2' ]]; then
+					score_server_ok=$((score_server_ok+1))
 				if [[ $server == 'Server1' ]]; then
 					score_server1_ok=$((score_server1_ok+1))
 				fi
 				if [[ $server == 'Server2' ]]; then
 					score_server2_ok=$((score_server2_ok+1))
 				fi
+				fi
+				if [[ $workstation == 'Workstation1' || $workstation == 'Workstation2' ]]; then
+					score_workstation_ok=$((score_workstation_ok+1))
 				if [[ $workstation == 'Workstation1' ]]; then
 					score_workstation1_ok=$((score_workstation1_ok+1))
 				fi
@@ -65,12 +78,16 @@ test_wrapper() {
 					score_workstation2_ok=$((score_workstation2_ok+1))
 				fi
 			else
+				if [[ $server == 'Server1' || $server == 'Server2' ]]; then
+					noscore_server_ok=$((noscore_server_ok+1))
 				if [[ $server == 'Server1' ]]; then
 					noscore_server1_ok=$((noscore_server1_ok+1))
 				fi
 				if [[ $server == 'Server2' ]]; then
 					noscore_server2_ok=$((noscore_server2_ok+1))
 				fi
+				if [[ $workstation == 'Workstation1' || $workstation == 'Workstation2' ]]; then
+                    noscore_workstation_ok=$((score_workstation_ok+1))
 				if [[ $workstation == 'Workstation1' ]]; then
 					noscore_workstation1_ok=$((noscore_workstation1_ok+1))
 				fi
